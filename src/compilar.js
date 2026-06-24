@@ -111,6 +111,16 @@ async function main() {
   const rect = padToRectangle(filtered, width);
   console.log(`[filtro] ${allRows.length} brutas -> ${rect.length} com Col${cfg.filterColIndex + 1} preenchida`);
 
+  // Guarda anti-apagao: poucas linhas = provavel leitura anomala. Aborta antes de limpar.
+  const minRows = Number(cfg.minRows) || 0;
+  if (rect.length < minRows) {
+    throw new Error(
+      `So ${rect.length} linha(s) filtrada(s), abaixo do minimo (minRows=${minRows}). ` +
+        `Abortando SEM limpar o destino pra nao apagar o espelho bom. ` +
+        `Se as origens realmente esvaziaram, baixe minRows no config.json.`
+    );
+  }
+
   if (dryRun) {
     console.log("[dry-run] nao escreve no destino. Amostra (1a linha):");
     console.log(JSON.stringify(rect[0] || [], null, 0).slice(0, 500));

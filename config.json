@@ -14,6 +14,9 @@
   "_filterColIndex": "Col7 do QUERY = coluna G = indice 6 (0-based) dentro do range lido (que comeca em A).",
   "filterColIndex": 6,
 
+  "_minRows": "Guarda anti-apagao: se o total filtrado for MENOR que isso, aborta SEM limpar o destino (assume leitura anomala/origens vazias). Hoje o normal e ~5500. Suba se quiser mais margem; 0 desliga a guarda.",
+  "minRows": 100,
+
   "_render": "Como ler/escrever os valores. UNFORMATTED_VALUE + FORMATTED_STRING preserva numeros como numeros e datas como texto legivel (igual IMPORTRANGE). USER_ENTERED faz o Sheets reinterpretar datas/numeros ao escrever.",
   "valueRenderOption": "UNFORMATTED_VALUE",
   "dateTimeRenderOption": "FORMATTED_STRING",
