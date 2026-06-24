@@ -1,0 +1,14 @@
+{
+  "name": "compilador-pm-geral-actions",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Compila varias planilhas de origem na aba PM_GERAL (ESPELHO) do destino, filtrando linhas onde a coluna G (Col7) esta vazia. Substitui o QUERY+IMPORTRANGE que quebrava.",
+  "scripts": {
+    "start": "node src/compilar.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
+}

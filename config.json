@@ -1,0 +1,23 @@
+{
+  "_doc": "Compila as origens listadas em Config!BK4:BN do destino na aba PM_GERAL (ESPELHO). Filtra linhas onde a coluna G (Col7) esta vazia. As origens NAO ficam aqui — ficam na propria planilha (Config!BK4:BN), pra editar sem mexer no codigo.",
+
+  "destSpreadsheetId": "1KEsjERRsAp4q_VNbn4u754f_GebiQzVk4nUCjDO_zn8",
+  "destSheet": "PM_GERAL (ESPELHO)",
+  "destStartCell": "A4",
+  "destClearRange": "A4:BO",
+
+  "configSheet": "Config",
+  "configRange": "BK4:BN",
+  "_configCols": "Indice 0-based DENTRO de BK4:BN. BK=0 (label, opcional), BL=1 (ID), BM=2 (Aba), BN=3 (Range).",
+  "configCols": { "label": 0, "id": 1, "aba": 2, "range": 3 },
+
+  "_filterColIndex": "Col7 do QUERY = coluna G = indice 6 (0-based) dentro do range lido (que comeca em A).",
+  "filterColIndex": 6,
+
+  "_render": "Como ler/escrever os valores. UNFORMATTED_VALUE + FORMATTED_STRING preserva numeros como numeros e datas como texto legivel (igual IMPORTRANGE). USER_ENTERED faz o Sheets reinterpretar datas/numeros ao escrever.",
+  "valueRenderOption": "UNFORMATTED_VALUE",
+  "dateTimeRenderOption": "FORMATTED_STRING",
+  "valueInputOption": "USER_ENTERED",
+
+  "timezone": "America/Sao_Paulo"
+}
