@@ -155,6 +155,29 @@ async function main() {
     console.log("[destino] nenhuma linha pra escrever (so limpou).");
   }
 
+  // 5) Carimbo de atualizacao em C2 (fora do clear A4:BO, nao e apagado).
+  const stamp = new Intl.DateTimeFormat("pt-BR", {
+    timeZone: cfg.timezone || "America/Sao_Paulo",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(new Date());
+  await withRetry(
+    () =>
+      sheets.spreadsheets.values.update({
+        spreadsheetId: cfg.destSpreadsheetId,
+        range: `${destSheetA1}C2`,
+        valueInputOption: cfg.valueInputOption,
+        requestBody: { values: [[stamp]] },
+      }),
+    { label: "write-stamp" }
+  );
+  console.log(`[destino] carimbo C2: ${stamp}`);
+
   console.log("OK.");
 }
 
