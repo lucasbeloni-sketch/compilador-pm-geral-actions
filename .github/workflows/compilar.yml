@@ -35,6 +35,9 @@ jobs:
         run: npm start
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+          # Forca IPv4 no resolver: mitiga ERR_STREAM_PREMATURE_CLOSE do undici
+          # no fetch do token OAuth (oauth2/v4/token) sob Node 22.
+          NODE_OPTIONS: --dns-result-order=ipv4first
 
   notify:
     needs: compilar
